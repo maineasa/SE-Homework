@@ -1,0 +1,33 @@
+
+body{
+	margin:0;
+	padding:0;
+	height: 100%;
+}
+#flexcontainer{
+	display:flex;
+	justify-content: center;
+	height:100%;
+}
+#formcontainer{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#header{
+	background-color: bisque;
+	margin: -1.34em;
+	padding-top: -1em;
+	text-align: center;
+	font-size: 2em;
+}
+
+#formdescription{
+	font-size: 1.2em;
+	font-weight: bold;
+}
+.img{
+	height: 150px;
+	width: 175px;
+}
