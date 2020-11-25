@@ -1,0 +1,27 @@
+#gridcontain{
+	display:grid;
+	grid-template-columns:repeat(3,1fr);
+	grid-template-rows:repeat(5,1fr);
+	height:100%;
+	width: 100%;
+	grid-gap: 10px 10px;
+	grid-template-areas:
+		"header header header"
+		"Lbumper body Rbumper"
+		"Lbumper body Rbumper"
+		"Lbumper body Rbumper"
+		"footer footer footer"
+	;
+}
+#gridcontain > div{
+	font-size: 3em;
+	text-align: center;
+}
+#header,#footer,#body,#Lbumper,#Rbumper{
+	border:solid red;
+}
+#header{ grid-area:header; }
+#footer{ grid-area:footer; }
+#body{ grid-area:body; }
+#Lbumper{ grid-area:Lbumper; }
+#Rbumper{ grid-area:Rbumper; }

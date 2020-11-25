@@ -1,0 +1,12 @@
+.container{
+	display:flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.item{
+	width:700px;
+	background-color: lightblue;
+	text-align: center;
+	margin:10px;
+}

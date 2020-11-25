@@ -1,0 +1,25 @@
+	@keyframes mymove{
+		20% 	{justify-content: flex-start;}
+		40% 	{justify-content: space-between;}
+		60% 	{justify-content: flex-end;}
+		80%		{justify-content: space-between;}
+		100%	{justify-content: flex-start;}
+	}
+	nav{
+		display: flex;
+		animation: mymove 4s infinite;
+	}
+	.item1,.item2,.item3{
+		position: relative;
+		width:120px;
+		height:40px;
+	}
+	.item1{
+		background-color: blue;
+	}
+	.item2{
+		background-color:red;
+	}
+	.item3{
+		background-color:green;
+	}
