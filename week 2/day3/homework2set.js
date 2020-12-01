@@ -118,7 +118,7 @@ console.log(filterLongWords(wordArr,6));
 
 //anonymous functions and forEach() loops are beautiful
 
-String.prototype.reverseString = function() {
+String.prototype.reverseString = function() { //the instructions state for the bonus to have a method also named reverseString
 	var arrThis = [''];
 	var countArr = [];
 	var i = -1;
@@ -126,12 +126,14 @@ String.prototype.reverseString = function() {
 
 	arrThis = this.split('').sort();
 	arrThis.forEach(value => {
-		if (currentChar === value){
+		if (currentChar === value.toLowerCase(){
 			countArr[i][1]++;
 		} else {
+		    if (value !== ' '){
 			i++;
-			currentChar = value;
+			currentChar = value.toLowerCase();
 			countArr.push([value,1])
+		}
 		}
 	});
 	for (var i = (countArr.length -1); i >= 0; i--) {
