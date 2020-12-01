@@ -73,6 +73,7 @@ countArguments = (...args) => { //this is called spread syntax, via https://stac
 	/*var numArgs = 0;
 	args.forEach(() => numArgs++);
 	return numArgs;*/ //this is just me doing forEach() again. anonymous functions are pretty freakin cool man.
+	
 	return args.length;
 }
 console.log(countArguments(arrayTest, 1 ,1)); //im using the array from another problem sorry
@@ -116,3 +117,25 @@ filterLongWords = (arr,minLength) => {
 console.log(filterLongWords(wordArr,6));
 
 //anonymous functions and forEach() loops are beautiful
+
+String.prototype.reverseString = function() {
+	var arrThis = [''];
+	var countArr = [];
+	var i = -1;
+	var currentChar = '';
+
+	arrThis = this.split('').sort();
+	arrThis.forEach(value => {
+		if (currentChar === value){
+			countArr[i][1]++;
+		} else {
+			i++;
+			currentChar = value;
+			countArr.push([value,1])
+		}
+	});
+	for (var i = (countArr.length -1); i >= 0; i--) {
+		console.log(`${countArr[i][0]}: ${countArr[i][1]}`);
+	}
+};
+"Yeet you".reverseString();
