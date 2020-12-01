@@ -118,26 +118,27 @@ console.log(filterLongWords(wordArr,6));
 
 //anonymous functions and forEach() loops are beautiful
 
-String.prototype.reverseString = function() { //the instructions state for the bonus to have a method also named reverseString
+String.prototype.reverseString = function() { //the instructions call for this method to be called reverseString
 	var arrThis = [''];
 	var countArr = [];
 	var i = -1;
 	var currentChar = '';
 
-	arrThis = this.split('').sort();
+	arrThis = this.toLowerCase().split('').sort();//do i even need this here?
 	arrThis.forEach(value => {
-		if (currentChar === value.toLowerCase(){
+		if (currentChar === value){
 			countArr[i][1]++;
 		} else {
-		    if (value !== ' '){
-			i++;
-			currentChar = value.toLowerCase();
-			countArr.push([value,1])
-		}
+			if (value !== ' '){
+				i++;
+				currentChar = value;
+				countArr.push([currentChar,1])
+			}
 		}
 	});
-	for (var i = (countArr.length -1); i >= 0; i--) {
+	/*for (var i = (countArr.length -1); i >= 0; i--) {
 		console.log(`${countArr[i][0]}: ${countArr[i][1]}`);
-	}
+	}*/
+	return countArr;
 };
-"PerScholas is what this is for".reverseString();
+console.log("PerScholas is what this is for".reverseString());
