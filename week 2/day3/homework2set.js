@@ -138,4 +138,4 @@ String.prototype.reverseString = function() {
 		console.log(`${countArr[i][0]}: ${countArr[i][1]}`);
 	}
 };
-"Yeet you".reverseString();
+"PerScholas is what this is for".reverseString();
