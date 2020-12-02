@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jello</title>
+</head>
+<style type="text/css">
+	h1 {
+		display: none;
+	}
+</style>
+<body>
+	<h1 id="a">Hello</h1>
+	<h1 id="b">Hello?</h1>
+	<h1 id="c">...hello?</h1>
+
+	<button onclick="funStuff('a','b','c',turnCounter); turnCounter++;">Press For Fun</button>
+
+	<script type="text/javascript">
+		var turnCounter = 0;
+
+		function funStuff(id1,id2,id3,counter){
+			if (turnCounter === 0) {
+			document.getElementById(id1).style.display = 'block';
+			}
+			
+			if (turnCounter === 1){
+			document.getElementById(id2).style.display = 'block';
+			document.getElementById(id2).style.fontSize ="1.5em";
+			}
+			
+			if (turnCounter === 2) {
+			document.getElementById(id3).style.display = 'block';
+			document.getElementById(id3).style.fontSize = '1em';
+			document.getElementById(id3).style.fontWeight = "normal";
+			}
+		}
+	</script>
+
+</body>
+</html>

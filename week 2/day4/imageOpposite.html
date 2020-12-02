@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<img id="a" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Plus_font_awesome.svg/1200px-Plus_font_awesome.svg.png" style="max-width: 200px; height: 200px">
+	
+	<br>
+
+	<button onclick="imgBool =!imgBool; displayArrImageBool(arrImages,imgBool,'a');">
+		button
+	</button>
+
+	<script type="text/javascript">
+		var imgBool = false;
+
+		var arrImages = [
+			"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Plus_font_awesome.svg/1200px-Plus_font_awesome.svg.png", //plus sign
+			"https://img1.pnghut.com/25/5/7/EHFqLagmCD/rectangle-sign-calculation-negative-number-subtraction.jpg" //minus sign
+		]
+
+		function convertBoolToInt(bool) {
+			return bool ? 0 : 1;
+		}
+
+		function displayArrImageBool(arr,bool,imgId){
+			document.getElementById(imgId).src = arrImages[convertBoolToInt(imgBool)];
+		}
+	</script>
+</body>
+</html>
