@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <img id='img' alt="img">
+
+    <button onclick="changeImage(1)">forward</button>
+    <button onclick="changeImage(-1)">back</button>
+
+  </body>
+
+  <script type="text/javascript">
+    index = 0;
+
+    function changeImage(x){
+
+      console.log(Number(x));
+      var images = ["img/1.png","img/2.png","img/3.png","img/4.png","img/5.png"]
+
+      if(index>images.length)
+        index=0;
+
+
+      //x is positive
+      if(x>0){
+        index++;
+        console.log("check"+index); //test
+        if(index>images.length){
+          document.getElementById('img').src = images[images.length-1];
+        } else {
+          console.log("inside else" + index);
+          document.getElementById('img').src = images[index];
+        }
+      }
+
+      //x is negative
+      if(x<0){
+        index--;
+        console.log("check"+index); //test
+        if(index<0)
+          document.getElementById('img').src = images[0];
+        else {
+          console.log("inside else" + index);
+          document.getElementById('img').src = images[index];
+
+        }
+      }
+
+
+    }
+  </script>
+</html>

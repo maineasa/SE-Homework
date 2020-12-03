@@ -62,21 +62,21 @@ this is taking too long to write already, so, you do it
 	<img id = "image" src = "" style="width: 200px; height: 200px;"> <!--the tag that displays an image-->
 	<br>
 
-	<button id = "Next" onclick = "changeIndexByVal(imageIndex,1); currentImage(imageUrlArr, imageIndex);">
+	<button id = "Next" onclick = "changeImage(1);">
 		Next
 	</button>
 
-	<button id = "Previous" onclick = "changeIndexByVal(imageIndex,-1); currentImage(imageUrlArr, imageIndex);">
+	<button id = "Previous" onclick = "changeImage(-1);">
 		Previous
 	</button>
 
 	<br>
 
-	<button id = "First" onclick = "changeIndexByVal(imageIndex,indexMax+1); currentImage(imageUrlArr, imageIndex);">
+	<button id = "First" onclick = "changeImage(indexMax+1)">
 		First
 	</button>
 
-	<button id = "Last" onclick = "changeIndexByVal(imageIndex, -1 * (indexMax+1)); currentImage(imageUrlArr, imageIndex);">
+	<button id = "Last" onclick = "changeImage(-1*(indexMax+1))">
 		Last
 	</button>
 
@@ -105,24 +105,25 @@ this is taking too long to write already, so, you do it
 		the first url in /imageUrlArr/. 
 		*/
 
-		function changeIndexByVal(index,val,min,max){ //function changes the value of imageIndex by an amount val. min and max have default values, but arguments can be passed to change these.
-			if (min === undefined) { min = 0; }
-			if (max === undefined) { max = 4; }
-			//the above is a way to have default values for min and max. 
+		function changeIndexByVal(val){ //function changes the value of imageIndex by an amount val. min and max have default values, but arguments can be passed to change these.
 
-			index += val; //adding the argument val to index
+			imageIndex += val; //adding the argument val to index
 
-			if (index > max) { index = 0; } 
+			if (imageIndex > indexMax) { imageIndex = 0; } 
 			//if the value of the index, after adding val, is greater than the maximum index (i.e. index of the last item in array), set it to zero. lets me loop through the images
-			else if (index < min) { index = 4; }
+			else if (imageIndex < 0) { imageIndex = 4; }
 			//does the same as above, but if less than the minimum index of the array, loops back to the maximum index. i didn't need to have min as a variable, i could've just used 0.
-			imageIndex = index;
 		};
 
-		function currentImage(arr,index){ //function changes the src of <img id = "image"> to the url of an array passed into the function at an index passed into the function.
-			document.getElementById("image").src = arr[index]; 
+		function currentImage(){ //function changes the src of <img id = "image"> to the url of an array passed into the function at an index passed into the function.
+			document.getElementById("image").src = imageUrlArr[imageIndex]; 
 			//the above is essentially document.getElementById("image").src = imageUrlArr[imageIndex]. Refer to these variables' comments for their use.
 		};
+
+		function changeImage(val){
+			changeIndexByVal(val);
+			currentImage();
+		}
 	</script>
 </body>
 </html>
