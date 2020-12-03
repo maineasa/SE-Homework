@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mini calculator</title>
+</head>
+<style type="text/css">
+	button {
+		width: 85px;
+	}
+</style>
+
+<!--
+	I'm thinking about this after having done this project, and watching a classmate using javascript externally.
+	Creating javascript that is independent of the html seems to be really important. A method described to me 
+	was via an array of the information needed from the html being available to the JS, so that neither is 
+	dependent on what is contained within the other. Interesting stuff. I've thought of a couple of ways to do
+	this. The first:
+
+	<script>
+		var arrInfo = (...args) => {
+			args.forEach(value => arrInfo.push(value));
+		}
+	</script>
+		^^This just creates one array of whatever arguments you're looking for. Potentially not great if you 
+		need different sets of arguments for different functions in your javascript. But, this is useful as
+		it's probably lightweight on the machine.
+
+	The second:
+
+	<script>
+		function createArrWithSpecificArgs(...args){
+			let arr = [];
+			args.forEach(value => arr.push(value))
+			return arr;
+		}
+	</script>
+		^^This just takes in args, and outputs an array. I'm suspicious of this, as what you could do instead is,
+		when your .js functions are used, is skip this whole thing and just do:
+			<button onclick ="myFunction(arg1,arg2,...argN)"></button>
+		The above does essentially the same as the second example.
+
+
+
+-->
+<body>
+
+	<input type="text" name="a" id ="a">
+	<br>
+	<input type="text" name="b" id ="b"> <!-- these two named per instructions -->
+	<br>
+	<input type="text" name="output" id="output">
+	<br>
+	<button onclick="add()">Add</button>
+	<button onclick="subtract()">Subtract</button>
+	<br>
+	<button onclick="multiply()">Multiply</button>
+	<button onclick="divide()">Divide</button>
+	<br>
+	<button onclick="avg()">Average</button>
+
+
+	<button onclick="clearInputFields('a','b','output')">Clear</button>
+<br>
+
+	<button onclick="">Average</button>
+
+
+
+	<!-- clear input fields is its own function so that I can clear everything here and just input fields in outputFunction. -->
+<script type="text/javascript">
+
+	function getVal(elemName){ //gets the value of a specified ID. typing getVal() is shorter than what's inside it.
+		return Number(document.getElementById(elemName).value);
+
+	}
+
+	function clearInputFields(...args){ /*
+		called args because i was worried about scope. not sure if a valid fear. this function just clears the values of text boxes
+		*/
+		args.forEach(id => document.getElementById(id).value = '');
+		//the above and the below are the same
+		for (let i = 0; i<(args.length -1); i++){
+			document.getElementbyId(args[i]) = '';
+		}
+
+		console.log(args);
+	}
+	function outputFunction(val,...idList){ //i was typing this stuff a lot, so i figured i should make a function
+		/*
+		these parameters allow the function to take in as many ids as a coder would want.
+		unnecessary, probably overkill, and a potential issue for larger arrays (from what i understand),
+		but i wanted to practice with it.
+		*/
+		document.getElementById("output").value = val;
+		clearInputFields(...idList); //clearing the input field is kinda dumb to be honest, but it's already here so
+	}
+
+	//going over arrow functions
+	//these below are all the same
+	function myFunction(arg){
+		//stuff
+	}
+
+	myFunction = (arg1, arg2) => {
+
+	}
+
+	myFunction = arg => /*stuff*/ ;
+
+	//anonymous functions
+
+
+	function add(){ //adds
+		var a = getVal("a");
+		var b = getVal("b");
+		outputFunction(a + b, "a","b");
+	}
+
+	function subtract(){ //subtracts	
+		var a = getVal("a");
+		var b = getVal("b");
+		outputFunction(a - b, "a","b");
+	}
+
+	function multiply(){ //multiplies	
+		var a = getVal("a");
+		var b = getVal("b");
+		outputFunction(a * b, "a","b");
+	}
+
+
+	function divide(){ //surprise, itdivides
+		var a = getVal("a");
+		var b = getVal("b");
+		outputFunction(a / b, "a","b");
+	}
+
+	/*function avg(){
+		var a = getVal("a");
+		var b = getVal("b");
+		outputFunction((a+b)/2,"a","b");
+	}*/
+
+</script>
+</body>
+</html>
