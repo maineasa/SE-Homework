@@ -120,7 +120,7 @@ function timerInterval(secondsId,minutesId){
 
 	seconds++;
 	if (seconds > 59){
-		minutes = Math.floor(seconds / 60);
+		minutes += Math.floor(seconds / 60);
 		seconds -= (Math.floor(seconds / 60) * 60);		
 	}
 	outputString(secondsId, "seconds");
