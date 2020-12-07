@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tick tock, it's a timer.</title>
+</head>
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<body>
+
+	<div id ="container" onclick="itemColorOnClick('gridItem');">
+		<div id="grid">
+
+			<div id="controlContainer1" onclick="revertColorChange('gridItem');">
+				<button id = "startButton" onclick="timerStart('seconds','minutes','timeInput');">Start</button>
+				<button id = "pauseButton" onclick="pauseTimer();">Pause</button>
+			</div>
+
+			<div class="gridItem"></div>
+			<div class="gridItem"></div>
+			<div class="gridItem"></div>
+
+			<div id="timer" onclick="revertColorChange('gridItem');">
+				<input id="minutes" type="text" name="minutes" value="00" onfocus="pauseTimer()" onkeydown = "inputOnTimer('minutes',true,'seconds',this)"> <!--not entirely sure why this works but it does-->
+				:
+				<input id="seconds" type="text" name="seconds" value="00" onfocus="pauseTimer()" onkeydown = "inputOnTimer('seconds',false,'minutes',this)">
+			</div>
+
+			<div class="gridItem"></div>
+			<div class="gridItem"></div>
+			<div class="gridItem"></div>
+			<div id = "controlContainer2" onclick="revertColorChange('gridItem');">
+				<button id = "resetButton" onclick="resetTimer('seconds','minutes')">Reset</button>
+			</div>
+
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../js/main.js"></script>
+</html>

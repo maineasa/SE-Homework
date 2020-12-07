@@ -84,13 +84,13 @@ console.log(countArguments(arrayTest, 1 ,1)); //im using the array from another 
 
 reverseString = (str) => {
 	str = str.split('').reverse().join(''); //default .join() separator is a comma
+	return str;
+};
 	/*the above does the following, in order:
 	1. makes the string an array by splitting each individual character
 	2. reverse said array
 	3. rejoins said array with a separator of '' - essentially meeting no separator. try running the above code as str = str.split('').reverse.join(); to see what i mean.
 	*/
-	return str;
-};
 
 console.log(reverseString('jag testar'));
 
@@ -98,7 +98,7 @@ console.log(reverseString('jag testar'));
 7. Write a function  findLongestWord  that takes an array of words and returns the length of the longest one.
 */
 findLongestWord = (arr) => {
-  arr = arr.sort(function(str1,str2) {return str1.length - str2.length}); //fat arrow function didn't work here, not sure why, but this does. it might be because i have two parameters, but who knows! not me!
+  arr = arr.sort(function(str1,str2) {return str1.length - str2.length}); //this is inefficient. it's faster to just do a forEach(), i'm pretty sure.
   return arr[(arr.length - 1)];
 };
 
@@ -109,36 +109,45 @@ console.log(findLongestWord(wordArr));
 */
 filterLongWords = (arr,minLength) => {
 	var arrMinLengthWords = []; //an empty array to add viable words to
-	arr.forEach(value => value.length > minLength ? arrMinLengthWords.push(value) : null);
-	//god i love ternary operators. beautiful and simple. above is a forEach() with an anonymous function that evaluates whether or not the array value is rad enough to be in the arrMinLengthWords
+	arr.forEach(value => value.length > minLength ? arrMinLengthWords.push(value) : null); //god i love ternary operators. beautiful and simple. above is a forEach() with an anonymous function that evaluates whether or not the array value is rad enough to be in the arrMinLengthWords
 	return arrMinLengthWords;
 };
 
+/*
+the forEach loop above is essentially this:
+for(var i = (arr.length -1); i >= 0; i--){
+	if (arr[i].length > minLength){
+		arrMinLengthWords.push(arr[i]);
+	}
+}
+*/
 console.log(filterLongWords(wordArr,6));
 
 //anonymous functions and forEach() loops are beautiful
 
 String.prototype.reverseString = function() { //the instructions call for this method to be called reverseString
-	var arrThis = [''];
-	var countArr = [];
-	var i = -1;
-	var currentChar = '';
+	var arrThis = [];//i dont want to change the actual string object
+	var countArr = []; //an array to hold characters and their count 
+	var i = -1; //with the way my if statement is working in the forEach, the else will always run first, so i will be at least 0 and a valid index for further iterations
+	var currentChar = ''; //value of current character being counted in this
 
-	arrThis = this.toLowerCase().split('').sort();//do i even need this here?
+	arrThis = this.toLowerCase().split('').sort();//do i even need this here? ex: this.toLowerCase().split('').sort().forEach(...);
 	arrThis.forEach(value => {
+
 		if (currentChar === value){
 			countArr[i][1]++;
 		} else {
-			if (value !== ' '){
-				i++;
-				currentChar = value;
-				countArr.push([currentChar,1])
+			if (value !== ' '){ // this part of the if-else is where a character is counted
+				i++; //i++ must happen in this else because this part of the if-else indexs countArr. there is no other place in this code that could index here.
+				currentChar = value; 
+				countArr.push([currentChar,1]); //multidimensional array, to make template literal output easy. [i][0] is the character value, [i][1] is the count
 			}
 		}
+
 	});
 	/*for (var i = (countArr.length -1); i >= 0; i--) {
 		console.log(`${countArr[i][0]}: ${countArr[i][1]}`);
-	}*/
+	}*/ //this is just to output it to console, i don't think the bonus question was asking for this
 	return countArr;
 };
 console.log("PerScholas is what this is for".reverseString());

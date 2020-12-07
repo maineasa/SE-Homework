@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body, #container{
+    height: 100%;
+    width: 100%;
+}
+#container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-size:100% 100%;
+	background-image: url(../img/background.jpg);
+	margin:0;
+	padding: 0;
+}
+#grid{
+	display: grid;
+	height: 75vmin;
+	width: 75vmin;
+	grid-template-columns: repeat(3,1fr);
+	grid-template-rows: repeat(3,1fr);
+	grid-gap: 0;
+
+}
+#timer{
+	border-radius: 50%;
+	background-color: #18191a;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color:#dedede;
+	font-size: 6.8vmin;
+}
+#controlContainer1,#controlContainer2{
+	border-radius: 50%;
+	background-color: #18191a;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	color:#dedede;
+	font-size: 7vmin;
+}
+#startButton,#pauseButton,#resetButton{
+	font-size: .5em;
+	color: #dedede;
+	border: none;
+	background-color: #18191a;
+	margin: .5vh;
+}
+#startButton:active,#pauseButton:active,#resetButton:active{
+	color:#677b8f;
+}
+#seconds,#minutes{
+	width: 8vmin;
+	height: 7vmin;
+	border: none;
+	font-size: 1em;
+	text-align: right;
+	color: #dedede;
+	background-color: #18191a;
+	margin: 0;
+	padding: 0;
+}
+
+.gridItem{
+	border-radius: 50%;
+	opacity: 73%;
+	background-image: linear-gradient(to top left, #24036b, #134870); 
+}
+.gridItem:hover{
+	transition: .1s;
+	opacity: 0;
+}

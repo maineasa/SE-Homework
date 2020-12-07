@@ -78,6 +78,12 @@
 		called args because i was worried about scope. not sure if a valid fear. this function just clears the values of text boxes
 		*/
 		args.forEach(id => document.getElementById(id).value = '');
+		//the above and the below are the same
+		for (let i = 0; i<(args.length -1); i++){
+			document.getElementbyId(args[i]) = '';
+		}
+
+		console.log(args);
 	}
 	function outputFunction(val,...idList){ //i was typing this stuff a lot, so i figured i should make a function
 		/*
@@ -88,6 +94,20 @@
 		document.getElementById("output").value = val;
 		clearInputFields(...idList); //clearing the input field is kinda dumb to be honest, but it's already here so
 	}
+
+	//going over arrow functions
+	//these below are all the same
+	function myFunction(arg){
+		//stuff
+	}
+
+	myFunction = (arg1, arg2) => {
+
+	}
+
+	myFunction = arg => /*stuff*/ ;
+
+	//anonymous functions
 
 
 	function add(){ //adds
@@ -115,11 +135,11 @@
 		outputFunction(a / b, "a","b");
 	}
 
-	function avg(){
+	/*function avg(){
 		var a = getVal("a");
 		var b = getVal("b");
 		outputFunction((a+b)/2,"a","b");
-	}
+	}*/
 
 </script>
 </body>
