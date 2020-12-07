@@ -92,9 +92,7 @@ function inputOnTimer(inputId,boolSwitchFocus,otherId,keypress){//not sure if ke
 		else {
 			if ( !(isNaN(document.getElementById(otherId).value)) ) 
 				minutes = parseInt(document.getElementById(otherId).value);
-			window.focus();
 			timerStart(inputId,otherId);
-			
 		}
 	}
 }//boolSwitchFocus serves to purposes: to identify if the enter key should switch focus, and to identify that the user is currently typing in the #minutes field. 
