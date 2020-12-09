@@ -1,0 +1,15 @@
+1. use a for loop to iterate i from 0 (inclusive) to 50 (exclusive), and assign i to arr[i]
+2. 
+shoppingList.push("Hendricks gin");
+console.log(shoppingList);
+3.
+yoda.reverse();
+4.
+var nowServing = "";
+for (let i = 0; i < waitList.length; i++) {
+	nowServing = waitList[i];
+	console.log(nowServing);
+}
+5.
+var shoeString = shoe.join(" ");
+console.log(shoeString);
