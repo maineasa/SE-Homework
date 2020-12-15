@@ -19,13 +19,13 @@ function boundedRandNum(max,numDecimal,min) { //gives a random number bounded by
 	if ( isNaN(max)) { max = 0; console.log("Warning: Non-number value for max"); }
 	if ( isNaN(numDecimal)) { numDecimal = 0; console.log("Warning: Non-number value for numDecimal"); }//this and the above two are just handling unexpected arguments
 
-	if ( max <= min ) { console.log("Warning: max is less than min in boundedRandNum()!!")} //checking max vs min, unintended behavior if min is not less than max
+	if ( max <= min ) { console.log("Warning: max is less than min in boundedRandNum()!!");} //checking max vs min, unintended behavior if min is not less than max
 
 	return Number(((Math.random() * (max-min)) + min).toFixed(numDecimal)); //returns a number of decimal length numDecimal, minimum value min, and maximum (potentially exclusive) value max
 }
 
-var arrSnackName = ["Snickers", "Reese's", "100 Grand Bar"]; //trying to simulate input for different names, and making it easy to change later
-var arrSnacks =[]; //an array to contain the snacks, will be passed to vendingMachine
+const arrSnackName = ["Snickers", "Reese's", "100 Grand Bar"]; //trying to simulate input for different names, and making it easy to change later
+const arrSnacks =[]; //an array to contain the snacks, will be passed to vendingMachine
 
 const maxSnacks = arrSnackName.length; //these three const's are to simulate an input for the different snack prices and names
 const minPrice = 1;
@@ -44,4 +44,3 @@ const myVend = new VendingMachine(arrSnacks);
 console.log(`Hi! Outputting Snack at random index ${indexForOutput}: `, myVend.vend(indexForOutput));// i can't include myVend.vend() as a string literal. maybe it's because of the function?
 console.log("Total vending list: ");
 console.log(myVend);
-
